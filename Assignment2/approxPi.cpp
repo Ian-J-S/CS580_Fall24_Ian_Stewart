@@ -9,7 +9,7 @@
 // but still inside a square of side length 2 centered at the origin.
 double approxPi(int n) {
     double inside_points = 0;
-    double outside_points = 0;
+    double total_points = 0;
     double pi_approx;
 
     for (int i = 0; i < n; i++) {
@@ -19,10 +19,10 @@ double approxPi(int n) {
 
         if (x * x + y * y <= 1)
             inside_points++;
-        outside_points++;
+        total_points++;
     }
 
-    pi_approx = 4 * (inside_points / outside_points);
+    pi_approx = 4 * (inside_points / total_points);
 
     return pi_approx;
 }
