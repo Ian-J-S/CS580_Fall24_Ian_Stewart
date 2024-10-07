@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cstdlib> // To use rand function
 #include <ctime> // To set random seed w/ system time
 #include <fstream> // To write data to CSV file
@@ -7,24 +8,19 @@
 // Randomized points are tested to see whether or not
 // they fall within the unit circle, or are outside of the circle,
 // but still inside a square of side length 2 centered at the origin.
-double approxPi(int n) {
+double approxPi(int nPoints) {
     double inside_points = 0;
-    double total_points = 0;
-    double pi_approx;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < nPoints; i++) {
         // Scales the random number from rand() to a range between -1 and 1
         double x = 2.0 * rand() / RAND_MAX - 1.0;
         double y = 2.0 * rand() / RAND_MAX - 1.0;
 
         if (x * x + y * y <= 1)
             inside_points++;
-        total_points++;
     }
 
-    pi_approx = 4 * (inside_points / total_points);
-
-    return pi_approx;
+    return 4 * (inside_points / nPoints);
 }
 
 void logData() {
@@ -48,7 +44,9 @@ int main() {
     std::srand(std::time(NULL));
 
     // Write pi approximations to csv
-    logData();
+    // logData();
+
+    std::cout << approxPi(10000) << std::endl;
 
     return 0;
 }
