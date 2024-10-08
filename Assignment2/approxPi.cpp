@@ -25,13 +25,14 @@ double approxPi(int nPoints) {
 void logData() {
     // Create and/or open csv file and append each write
     std::ofstream csv("pi_approximations.csv", std::ios::app);
+    csv << "Sample size,Pi APprox" << std::endl;
     
     // Outer loop from 10 to 10k sample size in increments of 100
     for (int i = 10; i < 10000; i+=100) {
         // Inner loop tests pi at this sample size 10 (could be more) times
         for (int j = 0; j < 10; j++) {
             // Sample size, Pi_approx value
-            csv << i << ", " << approxPi(i) << std::endl;
+            csv << i << "," << approxPi(i) << std::endl;
         }
     }
 
