@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cstdlib> // To use rand function
 #include <ctime> // To set random seed w/ system time
 #include <fstream> // To write data to CSV file
@@ -44,9 +43,7 @@ int main() {
     std::srand(std::time(NULL));
 
     // Write pi approximations to csv
-    // logData();
-
-    std::cout << approxPi(10000) << std::endl;
+    logData();
 
     return 0;
 }
