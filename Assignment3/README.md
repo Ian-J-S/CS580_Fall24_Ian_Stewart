@@ -1,5 +1,4 @@
 ## Submission for Assignment3
----
 
 To use the code, run the command:
 
