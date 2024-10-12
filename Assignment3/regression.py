@@ -29,5 +29,4 @@ yline = k * xline + b
 # Set up the plot with data from csv and regression line
 pyplot.scatter(x, y)
 pyplot.plot(xline, yline, color='red', label='Linear Model: y = kx + b')
-pyplot.title('FFFFF') #CHANGE LATER
 pyplot.show()
