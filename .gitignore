@@ -1,5 +1,6 @@
 .vscode/
 */a.out
+*/*.pdf
 
 Assignment2/approxPi
 Assignment2/*.csv
