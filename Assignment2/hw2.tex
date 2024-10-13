@@ -1,0 +1,93 @@
+\documentclass{article}
+\title{CSCI-580 Homework 2}
+\author{Ian Stewart}
+\date{October 8, 2024}
+
+\usepackage[a4paper, total={6.2in, 8in}]{geometry}
+
+% For pseudocode
+\usepackage[noend]{algpseudocode}
+\renewcommand\algorithmicthen{}
+\renewcommand\algorithmicdo{}
+
+% For embedding links
+\usepackage[colorlinks, urlcolor=blue]{hyperref}
+
+% For including graphics/pictures in doc
+\usepackage{graphicx}
+\graphicspath{./Figures}
+
+\begin{document}
+
+\maketitle
+
+\section*{Part 1}
+
+\begin{enumerate}
+    \item Approximating $\pi$ using Monte Carlo methods.
+    \begin{enumerate}
+        \item Given the area of a circle $A_c = \pi r^2$ and a square
+        with a side length of $r$ and an area of $A_s = (2r)^2$, we can
+        take the ratio of the area of the circle to the area of the square
+        is $\frac{\pi r^2}{4r^2} = \frac{\pi}{4}$. Using the ratio
+        $4\frac{A_c}{A_s} = \pi$, we can take advantage of Monte Carlo
+        methods to compute an approximation of $\pi$. The process is to
+        calculate a large number of random points where
+        $-1 \leq x \leq 1$ and $-1 \leq y \leq 1$. We then check each point
+        to see if it is inside of the circle $x^2 + y^2 = 1$. To approximate
+        $\pi$ we take advantage of the ratio of areas, but instead take the ratio
+        of the number of points inside the circle to the total number of points,
+        multiplied by 4.
+        \item Here is a C++ implementation of a function to approximate $\pi$.
+        \begin{flushleft}
+            \includegraphics[scale=0.20]{Figures/approxPi3.png}
+        \end{flushleft}
+        \newpage
+        \item Here are two figures showing the improved approximation as
+        sample size increases. I have included one without error bars and
+        one with error bars.
+    \end{enumerate}
+    \begin{center}
+        \includegraphics[scale=0.85]{Figures/approx_pi.png}
+        \includegraphics[scale=0.85]{Figures/approx_pi_error_bars.png}
+    \end{center}
+
+    \newpage
+    \section*{Part 2}
+    \item BFS and IDA* are similar in that both systematically and incrementally
+    explore their search space. In BFS, all nodes at a given depth are explored
+    before moving to the next level. Similarly, in IDA*, nodes are explored up to
+    a specific depth threshold before the search deepens with a higher limit. This
+    incremental exploration in both algorithms ensures that the search progresses
+    in a controlled and organized manner, covering all possibilities within the
+    current depth or depth threshold. \\
+    The line between DFS and IDA* signifies the fact that IDA* will explore in a
+    depth-first manner up to the depth threshold specified. It is similar to minimax
+    in that minimax also uses a depth-first traversal order. Another similarity is
+    that both use backtracking to travel back up the trees they are exploring. \\
+    Dijkstra's algorithm is similar to alpha-beta pruning because they are both
+    optimization algorithms that reduce unnecessary computations. Dijkstra's does
+    this by always evaluating the shortest path first, and alpha-beta pruning does
+    this by pruning tree branches that won't affect the minimax values. \\
+    A* is similar to IDA* due to the fact that they both incorporate a heuristic
+    to aid with path evaluation. More specifically, they both aim to encode some
+    form of prior knowledge to increase the efficiency of the algorithms. \\
+    D* has a similar dynamic nature to IDA*. IDA* changes its threshold dynamically
+    as the search deepens, whereas D* can dynamically readjust its pathfinding
+    in a changing environment. They also both use heuristic-driven approaches to aid
+    in exploration. \\
+    R* and Monte Carlo tree search have a line between them because they both use
+    a randomized approach. They both utilize randomness for problems in which it is
+    infeasible to implement a deterministic solution. The line between R* and
+    Softmax signifies the probabilistic approach used in both approaches. R*
+    can be viewed as probabilistic because of the randomness of its exploration.
+    Softmax assigns probabilities to each option and can be adjusted via the
+    "temperature" to control the likelihood of an exploitative option being
+    chosen. \\
+    I believe there could be another connecting line between A* (Heuristic driven)
+    and Softmax search. This is because the temperature value of Softmax could be
+    thought of as a sort of heuristic. By tuning the temperature, a person is
+    essentially encoding their prior knowledge of the problem to influence the
+    search process.
+\end{enumerate}
+\end{document}
