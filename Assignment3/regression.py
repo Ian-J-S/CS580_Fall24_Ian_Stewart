@@ -22,6 +22,9 @@ n = len(x)
 k = (n * np.sum(x * y) - (np.sum(x) * np.sum(y))) / (n*np.sum(x*x) - pow(np.sum(x), 2))
 b = (np.sum(y) - k * np.sum(x)) / n
 
+print(f'Slope: {k}')
+print(f'Intercept: {b}')
+
 # Generate the line based on the slope and intercept
 xline = np.linspace(min(x), max(x), 100)
 yline = k * xline + b
@@ -29,4 +32,5 @@ yline = k * xline + b
 # Set up the plot with data from csv and regression line
 pyplot.scatter(x, y)
 pyplot.plot(xline, yline, color='red', label='Linear Model: y = kx + b')
+pyplot.title("Linear Regression with Covariance")
 pyplot.show()
